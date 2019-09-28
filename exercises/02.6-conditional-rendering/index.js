@@ -3,6 +3,14 @@ import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 
 const Alert = props => {
+	let alertClasses = "alert";
+	if (props.color == "red") alertClasses += " alert-danger";
+	else if (props.color == "orange") alertClasses += " alert-warning";
+	return (
+		<div className={alertClasses} role="alert">
+			{props.text}
+		</div>
+	);
 	//your component here
 };
 Alert.propTypes = {
@@ -14,8 +22,8 @@ Alert.propTypes = {
 // but it helps you understand what properties are being passed to the component
 ReactDOM.render(
 	<div>
-		<Alert text="OMG! Something really bad has happended!" color="red" />
-		<Alert text="Well, it is not that bad after all!" color="orange" />
+		<Alert text="This is a primary alert—check it out!" color="red" />
+		<Alert text="This is a primary alert—check it out!" color="orange" />
 	</div>,
 	document.querySelector("#myDiv")
 );
